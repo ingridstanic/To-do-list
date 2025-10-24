@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Bahnschrift, "Segoe UI", "Franklin Gothic Medium", Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -24,15 +24,24 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+header {
+  background-image: url(assets/post-it-notes-1284667_640.jpg);
+  background-position: 50%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #000;
+  margin: 0;
 }
 
 #app {
