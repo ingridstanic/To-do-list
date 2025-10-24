@@ -15,11 +15,18 @@
       <div id="app">
         <form id="tasks">
           <label for="toDo">To do:</label>
-          <input type="text" name="toDo" required>
-          <label for="timeForTask">Estimated time for task:</label>
-          <input type="datetime-local" name="timeForTask">
+          <input type="text" name="toDo" required><br>
+
+          <label for="timeForTaskStart">Estimated time for task:</label><br>
+          <span>Start:</span>
+          <input type="time" name="timeForTaskStart"><br>
+
+          <label for="timeForTaskEnd">Stop:</label>
+          <input type="time" name="timeForTaskEnd"><br>
+          
           <button>Save</button>
         </form>
+        <section id="tasks"></section>
       </div>
     </main>
     
