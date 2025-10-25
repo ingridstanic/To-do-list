@@ -6,6 +6,6 @@ export class Task {
     constructor(task, startTime, endTime) {
         this.task = task;
         this.startTime = startTime;
-        this, endTime = endTime;
+        this.endTime = endTime;
     }
 }

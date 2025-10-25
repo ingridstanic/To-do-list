@@ -1,3 +1,4 @@
+@import "tailwindcss";
 :root {
   font-family: Bahnschrift, "Segoe UI", "Franklin Gothic Medium", Arial, sans-serif;
   line-height: 1.5;
@@ -29,19 +30,10 @@ body {
 }
 
 header {
-  background-image: url(assets/post-it-notes-1284667_640.jpg);
-  background-position: 50%;
   height: 100px;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  color: #000;
-  margin: 0;
+  align-items: center;  
 }
 
 #app {

@@ -7,26 +7,27 @@
     <title>The Todos</title>
     <script type="module" src="/src/main.js"></script>
   </head>
-  <body>
-    <header>
-      <h1>My ToDos.</h1>
+  <body class="bg-slate-900">
+    <header class="bg-slate-950">
+      <h1 class="text-5xl font-bold text-slate-500">My ToDos.</h1>
     </header>
     <main>
       <div id="app">
-        <form id="tasks">
+        <form id="taskForm">
           <label for="toDo">To do:</label>
-          <input type="text" name="toDo" required><br>
+          <input type="text" name="toDo" id="toDo" required><br>
 
           <label for="timeForTaskStart">Estimated time for task:</label><br>
           <span>Start:</span>
-          <input type="time" name="timeForTaskStart"><br>
+          <input type="time" name="timeForTaskStart" id="timeForTaskStart"><br>
 
           <label for="timeForTaskEnd">Stop:</label>
-          <input type="time" name="timeForTaskEnd"><br>
+          <input type="time" name="timeForTaskEnd" id="timeForTaskEnd"><br>
           
           <button>Save</button>
         </form>
         <section id="tasks"></section>
+        <section id="breaks"></section>
       </div>
     </main>
     
