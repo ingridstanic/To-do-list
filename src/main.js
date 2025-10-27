@@ -28,8 +28,6 @@ if (tasksFromLs === null) {
     newTasks = JSON.parse(tasksFromLs);
 }
 
-
-
 const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -50,6 +48,8 @@ const handleSubmit = (e) => {
 const taskForm = document.getElementById("taskForm");
 
 taskForm.addEventListener("submit", handleSubmit);
+
+
 
 
 

@@ -16,6 +16,14 @@ export const createHtmlForBreaks = (breakList) => {
         to.innerHTML = " - ";
         endTime.innerHTML = brk.endTime;
         check.type = "checkbox";
+        check.addEventListener("change", () => {
+            if (check.checked) {
+                task.style.textDecoration = "line-through";
+            }
+            else {
+                task.style.textDecoration = "none";
+            }
+        })
 
         container.appendChild(task);
         container.appendChild(startTime);
@@ -33,7 +41,7 @@ export const createHtmlForNewTasks = (newTasks) => {
 
     taskContainer.innerHTML = "";
 
-    newTasks.forEach((todo) => {
+    newTasks.forEach((todo, i) => {
         const container = document.createElement("div");
         const task = document.createElement("h2");
         const startTime = document.createElement("span");
@@ -48,7 +56,21 @@ export const createHtmlForNewTasks = (newTasks) => {
         to.innerHTML = " - ";
         endTime.innerHTML = todo.endTime;
         check.type = "checkbox";
+        check.addEventListener("change", () => {
+            if (check.checked) {
+                task.style.textDecoration = "line-through";
+            }
+            else {
+                task.style.textDecoration = "none";
+            }
+        })
+        deleteButton.className = "deleteTask";
         deleteButton.innerHTML = "Delete";
+        deleteButton.addEventListener("click", () => {
+            newTasks.splice(i, 1);
+            localStorage.setItem("task", JSON.stringify(newTasks));
+            createHtmlForNewTasks(newTasks);
+        });
 
         container.appendChild(task);
         container.appendChild(startTime);
