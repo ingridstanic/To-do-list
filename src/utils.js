@@ -1,6 +1,8 @@
+import { Task } from "./models/Task";
+
 export const createHtmlForBreaks = (breakList) => {
     const breakContainer = document.getElementById("breaks");
-    breakContainer.className = "breakContainer";
+    breakContainer.className = "breakContainer flex justify-center gap-10 mt-10 pb-10";
 
     breakList.forEach((brk) => {
         const container = document.createElement("div");
@@ -10,26 +12,31 @@ export const createHtmlForBreaks = (breakList) => {
         const endTime = document.createElement("span");
         const check = document.createElement("input");
 
-        container.className = "breakCard";
+        container.className = "breakCard relative text-center w-45 h-40 p-8 border-2 border-indigo-500 rounded-lg";
         task.innerHTML = brk.task;
         startTime.innerHTML = brk.startTime;
         to.innerHTML = " - ";
         endTime.innerHTML = brk.endTime;
         check.type = "checkbox";
+        check.checked = brk.done;
+        check.className = "absolute top-3 right-3"
         check.addEventListener("change", () => {
             if (check.checked) {
                 task.style.textDecoration = "line-through";
+                brk.done = true;
             }
             else {
                 task.style.textDecoration = "none";
+                brk.done = false;
             }
-        })
+            localStorage.setItem("breaks", JSON.stringify(breakList));
+        });
 
+        container.appendChild(check);
         container.appendChild(task);
         container.appendChild(startTime);
         container.appendChild(to);
         container.appendChild(endTime);
-        container.appendChild(check);
         breakContainer.appendChild(container);
     });
 
@@ -37,7 +44,7 @@ export const createHtmlForBreaks = (breakList) => {
 
 export const createHtmlForNewTasks = (newTasks) => {
     const taskContainer = document.getElementById("tasks");
-    taskContainer.className = "taskContainer";
+    taskContainer.className = "taskContainer flex flex-wrap justify-center gap-10 my-10";
 
     taskContainer.innerHTML = "";
 
@@ -50,26 +57,37 @@ export const createHtmlForNewTasks = (newTasks) => {
         const check = document.createElement("input");
         const deleteButton = document.createElement("button");
 
-        container.className = "taskCard";
+        container.className = "taskCard relative text-center w-45 h-40 p-8 border-2 border-indigo-500 rounded-lg";
         task.innerHTML = todo.task;
         startTime.innerHTML = todo.startTime;
         to.innerHTML = " - ";
         endTime.innerHTML = todo.endTime;
         check.type = "checkbox";
+        check.checked = todo.done;
+        check.className = "absolute top-3 right-3"
         check.addEventListener("change", () => {
             if (check.checked) {
                 task.style.textDecoration = "line-through";
+                todo.done = true;
             }
             else {
                 task.style.textDecoration = "none";
+                todo.done = false;
             }
+            localStorage.setItem("task", JSON.stringify(newTasks));
         })
-        deleteButton.className = "deleteTask";
-        deleteButton.innerHTML = "Delete";
+        deleteButton.className = "deleteTask absolute bottom-3 left-12.5";
+        deleteButton.innerHTML = "Done";
         deleteButton.addEventListener("click", () => {
-            newTasks.splice(i, 1);
+            const removedTask = newTasks.splice(i, 1);
             localStorage.setItem("task", JSON.stringify(newTasks));
             createHtmlForNewTasks(newTasks);
+
+            const doneTask = [];
+            doneTask.push(removedTask);
+            todo.done = true;
+            localStorage.setItem("done", JSON.stringify(doneTask));
+            //måste fixas sparar inte alla borttagna objekt....
         });
 
         container.appendChild(task);
@@ -81,5 +99,15 @@ export const createHtmlForNewTasks = (newTasks) => {
         taskContainer.appendChild(container);
 
 
-    })
+    });
+}
+
+export const compareNumbers = (a, b) => {
+    if (a.startTime < b.startTime) {
+        return -1;
+    }
+    if (a.startTime > b.startTime) {
+        return 1;
+    }
+    return 0;
 }
