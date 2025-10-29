@@ -83,10 +83,12 @@ export const createHtmlForNewTasks = (newTasks) => {
             localStorage.setItem("task", JSON.stringify(newTasks));
             createHtmlForNewTasks(newTasks);
 
-            const doneTask = [];
-            doneTask.push(removedTask);
+            localStorage.setItem("done", JSON.stringify(removedTask));
+            const doneTasks = localStorage.getItem("done");
+            const doneList = JSON.parse(doneTasks);
+            doneTasks.push(removedTask);
             todo.done = true;
-            localStorage.setItem("done", JSON.stringify(doneTask));
+
             //måste fixas sparar inte alla borttagna objekt....
         });
 

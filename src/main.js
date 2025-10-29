@@ -38,9 +38,6 @@ const listFromLS = localStorage.getItem("breaks");
 
 const breakList = JSON.parse(listFromLS);
 
-localStorage.setItem("breaks", JSON.stringify(myBreaks));
-//måste fixas if statement???
-
 createHtmlForBreaks(breakList);
 
 let newTasks = [];
