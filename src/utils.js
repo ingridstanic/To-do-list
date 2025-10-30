@@ -12,8 +12,9 @@ export const createHtmlForBreaks = (breakList) => {
         const endTime = document.createElement("span");
         const check = document.createElement("input");
 
-        container.className = "breakCard relative text-center w-45 h-40 p-8 border-2 border-indigo-500 rounded-lg";
+        container.className = "breakCard relative text-center w-50 h-45 p-8 border-2 border-indigo-500 rounded-lg";
         task.innerHTML = brk.task;
+        task.style.textDecoration = "none";
         startTime.innerHTML = brk.startTime;
         to.innerHTML = " - ";
         endTime.innerHTML = brk.endTime;
@@ -57,7 +58,7 @@ export const createHtmlForNewTasks = (newTasks) => {
         const check = document.createElement("input");
         const deleteButton = document.createElement("button");
 
-        container.className = "taskCard relative text-center w-45 h-40 p-8 border-2 border-indigo-500 rounded-lg";
+        container.className = "taskCard relative text-center w-50 h-55 p-8 border-2 border-indigo-500 rounded-lg";
         task.innerHTML = todo.task;
         startTime.innerHTML = todo.startTime;
         to.innerHTML = " - ";
@@ -76,20 +77,22 @@ export const createHtmlForNewTasks = (newTasks) => {
             }
             localStorage.setItem("task", JSON.stringify(newTasks));
         })
-        deleteButton.className = "deleteTask absolute bottom-3 left-12.5";
+        deleteButton.className = "deleteTask absolute bottom-3 left-14.5";
         deleteButton.innerHTML = "Done";
         deleteButton.addEventListener("click", () => {
-            const removedTask = newTasks.splice(i, 1);
-            localStorage.setItem("task", JSON.stringify(newTasks));
-            createHtmlForNewTasks(newTasks);
-
-            localStorage.setItem("done", JSON.stringify(removedTask));
-            const doneTasks = localStorage.getItem("done");
-            const doneList = JSON.parse(doneTasks);
-            doneTasks.push(removedTask);
+            const [removedTask] = newTasks.splice(i, 1);
             todo.done = true;
 
-            //måste fixas sparar inte alla borttagna objekt....
+
+            const doneList = JSON.parse(localStorage.getItem("done") || "[]");
+
+            doneList.push(removedTask);
+
+            localStorage.setItem("task", JSON.stringify(newTasks));
+            localStorage.setItem("done", JSON.stringify(doneList));
+
+
+            createHtmlForNewTasks(newTasks);
         });
 
         container.appendChild(task);

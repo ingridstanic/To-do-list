@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Todos</title>
+    <script type="module" src="/src/main.js"></script>
   </head>
   <body class="bg-slate-900">
     <header class="bg-slate-950">
@@ -25,13 +26,12 @@
             <label for="timeForTaskEnd">Stop:</label>
             <input class="bg-slate-500 rounded-lg" type="time" name="timeForTaskEnd" id="timeForTaskEnd"><br>
           
-            <button>Save</button>
+            <button id="saveButton">Save</button>
           </form>
         </div>
         <section id="tasks"></section>
         <section id="breaks"></section>
       </div>
     </main>
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
