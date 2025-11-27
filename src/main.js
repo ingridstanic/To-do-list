@@ -5,7 +5,7 @@ import { compareNumbers, createHtmlForBreaks, createHtmlForNewTasks } from "./ut
 const myBreaks = [
     new Task("Break", "09:45", "10:00", false),
     new Task("Walk Albus the dumbledog", "12:00", "13:00", false),
-    new Task("Eat something", "13:00", "13:15", false)
+    new Task("Eat something nice", "13:00", "13:15", false)
 ]
 
 localStorage.setItem("breaks", JSON.stringify(myBreaks));
