@@ -8,6 +8,8 @@ const myBreaks = [
     new Task("Eat something", "13:00", "13:15", false)
 ]
 
+localStorage.setItem("breaks", JSON.stringify(myBreaks));
+
 const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -34,11 +36,13 @@ const handleClick = () => {
     createHtmlForNewTasks(newTasks);
 };
 
+
 const listFromLS = localStorage.getItem("breaks");
 
-const breakList = JSON.parse(listFromLS);
-
-createHtmlForBreaks(breakList);
+if (listFromLS) {
+    const breakList = JSON.parse(listFromLS);
+    createHtmlForBreaks(breakList);
+}
 
 let newTasks = [];
 
