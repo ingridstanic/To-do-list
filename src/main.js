@@ -60,7 +60,7 @@ const sortButton = document.getElementById("sortButton");
 
 form.className = "flex justify-center my-10"
 taskForm.className = "flex flex-col justify-center gap-3 w-96 p-8 border-2 border-indigo-500 rounded-xl"
-sortButton.className = "absolute top-125 left-125"
+sortButton.className = "m-2"
 
 taskForm.addEventListener("submit", handleSubmit);
 sortButton.addEventListener("click", handleClick);

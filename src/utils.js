@@ -2,7 +2,7 @@ import { Task } from "./models/Task";
 
 export const createHtmlForBreaks = (breakList) => {
     const breakContainer = document.getElementById("breaks");
-    breakContainer.className = "breakContainer flex justify-center gap-10 mt-10 pb-10";
+    breakContainer.className = "breakContainer flex flex-wrap justify-center gap-10 mt-10 pb-10";
 
     breakList.forEach((brk) => {
         const container = document.createElement("div");
