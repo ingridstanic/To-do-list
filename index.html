@@ -18,14 +18,14 @@
       <div id="form">
         <form id="taskForm">
           <label for="toDo">To do:</label>
-          <input class="bg-slate-500 rounded-lg" type="text" name="toDo" id="toDo" required><br>
+          <input class="bg-slate-500 rounded-lg" type="text" name="toDo" id="toDo" required maxlength="30"><br>
 
           <label for="timeForTaskStart">Estimated time for task:</label>
           <span>Start:</span>
-          <input class="bg-slate-500 rounded-lg" type="time" name="timeForTaskStart" id="timeForTaskStart">
+          <input class="bg-slate-500 rounded-lg" type="time" name="timeForTaskStart" id="timeForTaskStart" required>
 
           <label for="timeForTaskEnd">Stop:</label>
-          <input class="bg-slate-500 rounded-lg" type="time" name="timeForTaskEnd" id="timeForTaskEnd"><br>
+          <input class="bg-slate-500 rounded-lg" type="time" name="timeForTaskEnd" id="timeForTaskEnd" required><br>
 
           <button id="saveButton">Save</button>
         </form>

@@ -58,7 +58,7 @@ export const createHtmlForNewTasks = (newTasks) => {
         const check = document.createElement("input");
         const deleteButton = document.createElement("button");
 
-        container.className = "taskCard relative text-center w-50 h-55 p-8 border-2 border-indigo-500 rounded-lg";
+        container.className = "taskCard relative text-center w-50 h-45 p-8 border-2 border-indigo-500 rounded-lg";
         task.innerHTML = todo.task;
         startTime.innerHTML = todo.startTime;
         to.innerHTML = " - ";
